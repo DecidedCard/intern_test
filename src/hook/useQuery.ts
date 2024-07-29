@@ -10,6 +10,7 @@ export const useJsonPlaceHolderTodosQuery = () => {
     queryFn: getTodos,
     staleTime: 1000 * 3,
     gcTime: 1000 * 10,
+    refetchOnWindowFocus: false,
   });
 
   return { isFetching, isError, data };
@@ -21,6 +22,7 @@ export const useJsonPlaceHolderTodoQuery = () => {
     queryFn: getTodo,
     staleTime: 1000 * 3,
     gcTime: 1000 * 10,
+    refetchOnWindowFocus: false,
   });
 
   return { isFetching, isError, data };

@@ -12,7 +12,7 @@ const Test = () => {
   }
 
   console.log(data);
-  return <div>Test</div>;
+  return <main>Test</main>;
 };
 
 export default Test;
