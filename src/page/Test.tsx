@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
 import { useJsonPlaceHolderTodosQuery } from "../hook/useQuery";
 
-import type { Todo } from "../types";
 import TodoItem from "../components/testComponents/TodoItem";
+import Navigation from "../components/common/Navigation";
+
+import type { Todo } from "../types";
 
 const Test = () => {
   const { isFetching, isError, data } = useJsonPlaceHolderTodosQuery();
@@ -17,12 +18,10 @@ const Test = () => {
 
   return (
     <>
-      <Link
-        className="sticky top-2 left-2 p-2 border-2 border-solid border-black rounded-lg"
-        to={"/"}
-      >
-        홈으로
-      </Link>
+      <div className="sticky top-6 ml-2">
+        <Navigation text="홈으로" path="/" />
+      </div>
+
       <main className="flex flex-col items-center">
         <h1 className="text-4xl my-3 font-bold">TodoList</h1>
 

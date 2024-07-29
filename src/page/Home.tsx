@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import Navigation from "../components/common/Navigation";
 
 const Home = () => {
   return (
-    <main>
-      <Link to={"/sign"}>로그인/회원가입</Link>
-      <Link to={"/my-page"}>로그인/회원가입</Link>
+    <main className="flex flex-col items-center justify-center gap-5 w-screen h-screen">
+      <div className="flex gap-4">
+        <Navigation text="로그인/회원가입" path="/sign" />
+        <Navigation text="마이페이지" path="/my-page" />
+      </div>
+      <Navigation text="JSONplaceHolder test" path="/test" />
     </main>
   );
 };
