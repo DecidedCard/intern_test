@@ -4,3 +4,9 @@ export type Todo = {
   title: string;
   completed: boolean;
 };
+
+export type UserInfoInput = {
+  id: string;
+  password: string;
+  nickname: string;
+};
