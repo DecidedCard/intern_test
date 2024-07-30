@@ -18,14 +18,21 @@ const Header = () => {
     );
   }
 
-  console.log(user);
-
   return (
     <header className="text-center text-xl mt-2">
       {user && (
-        <div>
-          <p>{user.nickname}</p>
-        </div>
+        <section className="flex justify-center items-center gap-10">
+          <div className="flex items-center justify-center gap-4">
+            {user.avatar ? (
+              <img src={user.avatar} alt="유저 아바타" />
+            ) : (
+              <div className="w-8 h-8 rounded-full bg-gray-300" />
+            )}
+
+            <p>{user.nickname}</p>
+          </div>
+          <button className="text-base">로그아웃</button>
+        </section>
       )}
     </header>
   );
