@@ -2,17 +2,12 @@ import { create } from "zustand";
 import type { User } from "../../types";
 
 type Store = {
-  user: User;
+  user: User | null;
   setUser: (user: User) => void;
 };
 
-const initial = {
-  avatar: "",
-  nickname: "",
-};
-
 const useUserStore = create<Store>()((set) => ({
-  user: initial,
+  user: null,
   setUser: (user: User) => set(() => ({ user })),
 }));
 

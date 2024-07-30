@@ -17,7 +17,7 @@ export const signIn = async (userInfo: Omit<UserInfoInput, "nickname">) => {
     localStorage.setItem("token", res.data.accessToken);
     return res.data;
   } catch (error) {
-    return error;
+    return Promise.reject(error);
   }
 };
 
@@ -28,7 +28,7 @@ export const userCheck = async (token: string) => {
     });
     return res.data;
   } catch (error) {
-    return error;
+    return Promise.reject(error);
   }
 };
 

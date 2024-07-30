@@ -11,12 +11,24 @@ const Header = () => {
   }
 
   if (isError) {
-    return <div>에러!</div>;
+    return (
+      <header className="text-center text-xl mt-2">
+        로그인해주시기 바랍니다.
+      </header>
+    );
   }
 
   console.log(user);
 
-  return <header className="text-center text-xl mt-2">userCheck</header>;
+  return (
+    <header className="text-center text-xl mt-2">
+      {user && (
+        <div>
+          <p>{user.nickname}</p>
+        </div>
+      )}
+    </header>
+  );
 };
 
 export default Header;

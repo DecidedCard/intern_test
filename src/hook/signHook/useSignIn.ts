@@ -1,13 +1,13 @@
-import { useNavigate } from "react-router-dom";
-import { signIn } from "../../api/jwt";
 import useInput from "../useInput";
 import { FormEvent } from "react";
+import { useSignInMutation } from "../useMutation";
 
 const useSignIn = () => {
   const { input: id, onChangeInputHandler: onChangeIdHandler } = useInput();
   const { input: password, onChangeInputHandler: onChangePasswordHandler } =
     useInput();
-  const navigate = useNavigate();
+
+  const { signInMutation } = useSignInMutation();
 
   const onSubmitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -17,14 +17,7 @@ const useSignIn = () => {
       password,
     };
 
-    const res = await signIn(loginInfo);
-
-    if (res.accessToken) {
-      alert("로그인 되었습니다.");
-      navigate("/");
-    } else {
-      alert(res.response.data.message);
-    }
+    signInMutation(loginInfo);
   };
 
   return {
