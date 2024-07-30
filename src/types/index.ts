@@ -10,3 +10,8 @@ export type UserInfoInput = {
   password: string;
   nickname: string;
 };
+
+export type Profile = {
+  avatar: File;
+  nickname: string;
+};
