@@ -1,7 +1,8 @@
 import { useNavigate } from "react-router-dom";
 
-import { signIn, signUp } from "../../api/jwt";
+import { signUp } from "../../api/jwt";
 
+import { useSignInMutation } from "../useMutation";
 import useInput from "../useInput";
 
 const useSignUp = () => {
@@ -10,6 +11,8 @@ const useSignUp = () => {
   const { input: id, onChangeInputHandler: onChangeIdHandler } = useInput();
   const { input: password, onChangeInputHandler: onChangePasswordHandler } =
     useInput();
+
+  const { signInMutation } = useSignInMutation();
 
   const navigation = useNavigate();
 
@@ -31,7 +34,7 @@ const useSignUp = () => {
 
     if (res.message === "회원가입 완료") {
       alert(res.message);
-      await signIn(loginInfo);
+      signInMutation(loginInfo);
       navigation("/");
     } else {
       alert(res.response.data.message);

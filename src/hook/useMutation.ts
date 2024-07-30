@@ -14,7 +14,6 @@ export const useSignInMutation = () => {
     mutationFn: signIn,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: [QUERY_KEY.userCheck] });
-      alert("로그인에 성공하였습니다.");
       navigate("/");
     },
 
