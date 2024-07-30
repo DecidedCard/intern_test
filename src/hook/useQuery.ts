@@ -4,6 +4,8 @@ import { getTodo, getTodos } from "../api/jsonPlaceHolder";
 import { userCheck } from "../api/jwt";
 
 import QUERY_KEY from "../util/queryKey";
+import useUserStore from "../share/store/useUserStore";
+import { useEffect } from "react";
 
 export const useJsonPlaceHolderTodosQuery = () => {
   const { isFetching, isError, data } = useQuery({
@@ -32,6 +34,7 @@ export const useJsonPlaceHolderTodoQuery = () => {
 };
 
 export const useUserCheckQuery = () => {
+  const { setUser } = useUserStore();
   const { isFetching, isError, data } = useQuery({
     queryKey: [QUERY_KEY.userCheck],
     queryFn: () => userCheck(localStorage.getItem("token")!),
@@ -39,5 +42,11 @@ export const useUserCheckQuery = () => {
     retry: 0,
   });
 
-  return { isFetching, isError, data };
+  useEffect(() => {
+    if (data) {
+      setUser(data);
+    }
+  }, [data, setUser]);
+
+  return { isFetching, isError };
 };
