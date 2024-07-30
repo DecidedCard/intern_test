@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 
 import { getTodo, getTodos } from "../api/jsonPlaceHolder";
+import { userCheck } from "../api/jwt";
 
 import QUERY_KEY from "../util/queryKey";
-import { userCheck } from "../api/jwt";
 
 export const useJsonPlaceHolderTodosQuery = () => {
   const { isFetching, isError, data } = useQuery({
