@@ -15,7 +15,6 @@ export const signIn = async (userInfo: Omit<UserInfoInput, "nickname">) => {
   try {
     const res = await jwtInstance.post("/login", userInfo);
     localStorage.setItem("token", res.data.accessToken);
-    console.log(res.data);
     return res.data;
   } catch (error) {
     return error;
