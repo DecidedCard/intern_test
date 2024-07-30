@@ -7,6 +7,6 @@ export const signUp = async (userInfo: UserInfoInput) => {
     const res = await jwtInstance.post("/register", userInfo);
     return res.data;
   } catch (error) {
-    Promise.reject(error);
+    return error;
   }
 };
