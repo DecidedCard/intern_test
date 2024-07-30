@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { signUp } from "../../api/jwt";
+import { signIn, signUp } from "../../api/jwt";
 import useInput from "../../hook/useInput";
 
 const SignUp = () => {
@@ -20,10 +20,16 @@ const SignUp = () => {
       nickname,
     };
 
+    const loginInfo = {
+      id,
+      password,
+    };
+
     const res = await signUp(userInfo);
 
     if (res.message === "회원가입 완료") {
       alert(res.message);
+      await signIn(loginInfo);
       navigation("/");
     } else {
       alert(res.response.data.message);
