@@ -2,7 +2,11 @@ import { useNavigate } from "react-router-dom";
 import { signIn, signUp } from "../../api/jwt";
 import useInput from "../../hook/useInput";
 
-const SignUp = () => {
+type Props = {
+  onClickToggle: () => void;
+};
+
+const SignUp = ({ onClickToggle }: Props) => {
   const { input: nickname, onChangeInputHandler: onChangeNicknameHandler } =
     useInput();
   const { input: id, onChangeInputHandler: onChangeIdHandler } = useInput();
@@ -73,7 +77,10 @@ const SignUp = () => {
             className="p-1 w-96 h-10 border border-solid border-black rounded-lg"
           />
         </ol>
-        <button>회원가입</button>
+        <button type="submit">회원가입</button>
+        <button type="button" onClick={onClickToggle}>
+          로그인
+        </button>
       </form>
     </section>
   );
