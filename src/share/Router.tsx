@@ -6,11 +6,13 @@ import Home from "../page/Home";
 import Sign from "../page/Sign";
 import Test from "../page/Test";
 import MyPage from "../page/MyPage";
+import Header from "../components/common/Header";
 
 const Router = () => {
   return (
     <>
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/test" element={<Test />} />
