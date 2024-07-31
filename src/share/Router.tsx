@@ -7,11 +7,15 @@ import Sign from "../page/Sign";
 import Test from "../page/Test";
 import MyPage from "../page/MyPage";
 import Header from "../components/common/Header";
+import Navigation from "../components/common/Navigation";
 
 const Router = () => {
   return (
     <>
       <BrowserRouter>
+        <div className="sticky top-6 ml-2">
+          <Navigation text="홈으로" path="/" />
+        </div>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
