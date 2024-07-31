@@ -33,7 +33,11 @@ const Header = () => {
         <section className="flex justify-center items-center gap-10">
           <div className="flex items-center justify-center gap-4">
             {user.avatar ? (
-              <img src={user.avatar} alt="유저 아바타" />
+              <img
+                src={user.avatar}
+                alt="유저 아바타"
+                className="w-8 h-8 rounded-full"
+              />
             ) : (
               <div className="w-8 h-8 rounded-full bg-gray-300" />
             )}

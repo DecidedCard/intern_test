@@ -7,7 +7,7 @@ const MyPage = () => {
 
   const [nickname, setNickname] = useState("");
   const [changeProfileImage, setChangeProfileImage] = useState("");
-  const [avatar, setAvatar] = useState<File>(new File([], "test"));
+  const [avatar, setAvatar] = useState<File[]>([]);
 
   const { profileChangeMutation } = useProfileChangeMutation();
 
@@ -30,20 +30,23 @@ const MyPage = () => {
       return;
     }
 
-    setAvatar(file);
+    setAvatar([file]);
     const url = URL.createObjectURL(e.target.files![0]);
     setChangeProfileImage(url);
   };
 
   const onClickProfileChangeHandler = () => {
-    const profileInput = {
-      avatar,
-      nickname,
-    };
+    const formData = new FormData();
+    if (avatar) {
+      formData.append("avatar", avatar[0]);
+    }
+    if (nickname) {
+      formData.append("nickname", nickname);
+    }
 
     profileChangeMutation({
       token: localStorage.getItem("token")!,
-      profileInput,
+      profileInput: formData,
     });
   };
 

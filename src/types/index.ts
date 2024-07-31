@@ -12,7 +12,7 @@ export type UserInfoInput = {
 };
 
 export type Profile = {
-  avatar: File;
+  avatar: File[];
   nickname: string;
 };
 
