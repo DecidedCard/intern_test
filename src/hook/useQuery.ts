@@ -44,9 +44,13 @@ export const useUserCheckQuery = () => {
 
   useEffect(() => {
     if (data) {
+      setUser(null);
       setUser(data);
     }
-  }, [data, setUser]);
+    if (isError) {
+      setUser(null);
+    }
+  }, [data, isError, setUser]);
 
   return { isFetching, isError };
 };
