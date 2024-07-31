@@ -1,10 +1,19 @@
+import { useQueryClient } from "@tanstack/react-query";
+
 import { useUserCheckQuery } from "../../hook/useQuery";
 
 import useUserStore from "../../share/store/useUserStore";
+import QUERY_KEY from "../../util/queryKey";
 
 const Header = () => {
   const { isFetching, isError } = useUserCheckQuery();
+  const queryClient = useQueryClient();
   const { user } = useUserStore();
+
+  const onClickLogoutHandler = () => {
+    localStorage.removeItem("token");
+    queryClient.invalidateQueries({ queryKey: [QUERY_KEY.userCheck] });
+  };
 
   if (isFetching) {
     return <div>로딩 중....</div>;
@@ -31,7 +40,13 @@ const Header = () => {
 
             <p>{user.nickname}</p>
           </div>
-          <button className="text-base">로그아웃</button>
+          <button
+            type="button"
+            onClick={onClickLogoutHandler}
+            className="text-base"
+          >
+            로그아웃
+          </button>
         </section>
       )}
     </header>
