@@ -1,9 +1,10 @@
 {
-  "extends": "./tsconfig.app.json",
-  "compilerOptions": {
-    "jsx": "react-jsx", // 이미 설정된 경우 확인
-    "baseUrl": "./src"
-  },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }
