@@ -3,12 +3,12 @@ import type { User } from "../../types";
 
 type Store = {
   user: User | null;
-  setUser: (user: User) => void;
+  setUser: (user: User | null) => void;
 };
 
 const useUserStore = create<Store>()((set) => ({
   user: null,
-  setUser: (user: User) => set(() => ({ user })),
+  setUser: (user: User | null) => set(() => ({ user })),
 }));
 
 export default useUserStore;

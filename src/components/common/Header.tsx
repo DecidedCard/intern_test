@@ -1,4 +1,5 @@
 import { useQueryClient } from "@tanstack/react-query";
+import { useNavigate } from "react-router-dom";
 
 import { useUserCheckQuery } from "../../hook/useQuery";
 
@@ -8,11 +9,16 @@ import QUERY_KEY from "../../util/queryKey";
 const Header = () => {
   const { isFetching, isError } = useUserCheckQuery();
   const queryClient = useQueryClient();
-  const { user } = useUserStore();
+
+  const { user, setUser } = useUserStore();
+
+  const navigate = useNavigate();
 
   const onClickLogoutHandler = () => {
     localStorage.removeItem("token");
     queryClient.invalidateQueries({ queryKey: [QUERY_KEY.userCheck] });
+    setUser(null);
+    navigate("/");
   };
 
   if (isFetching) {
