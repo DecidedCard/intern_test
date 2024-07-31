@@ -32,13 +32,19 @@ export const userCheck = async (token: string) => {
   }
 };
 
-export const profileChange = async (token: string, profileInput: Profile) => {
+export const profileChange = async ({
+  token,
+  profileInput,
+}: {
+  token: string;
+  profileInput: Profile;
+}) => {
   try {
     const res = await jwtInstance.patch("/profile", profileInput, {
       headers: { Authorization: `Bearer ${token}` },
     });
     return res.data;
   } catch (error) {
-    return error;
+    return Promise.reject(error);
   }
 };
