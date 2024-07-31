@@ -20,6 +20,7 @@ export const useSignInMutation = () => {
     onError: (error: AxiosError) => {
       const data = error.response?.data as { message: string };
       alert(data.message);
+      throw new Error(data.message);
     },
   });
 
@@ -37,6 +38,7 @@ export const useProfileChangeMutation = () => {
     onError: (error: AxiosError) => {
       const data = error.response?.data as { message: string };
       alert(data.message);
+      throw new Error(data.message);
     },
   });
 

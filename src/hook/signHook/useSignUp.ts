@@ -38,6 +38,7 @@ const useSignUp = () => {
       navigation("/");
     } else {
       alert(res.response.data.message);
+      throw new Error(res.response.data.message);
     }
   };
 
