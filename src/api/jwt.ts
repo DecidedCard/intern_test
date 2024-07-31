@@ -1,6 +1,6 @@
 import { jwtInstance } from "./axios";
 
-import type { Profile, UserInfoInput } from "../types";
+import type { UserInfoInput } from "../types";
 
 export const signUp = async (userInfo: UserInfoInput) => {
   try {
@@ -37,7 +37,7 @@ export const profileChange = async ({
   profileInput,
 }: {
   token: string;
-  profileInput: Profile;
+  profileInput: FormData;
 }) => {
   try {
     const res = await jwtInstance.patch("/profile", profileInput, {

@@ -11,11 +11,6 @@ export type UserInfoInput = {
   nickname: string;
 };
 
-export type Profile = {
-  avatar: File[];
-  nickname: string;
-};
-
 export type User = {
   avatar: string;
   nickname: string;
