@@ -12,6 +12,7 @@ export default defineConfig({
       },
       org: "card-nk",
       project: "javascript-react",
+      authToken: process.env.SENTRY_AUTH_TOKEN,
     }),
   ],
 
