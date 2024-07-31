@@ -45,7 +45,7 @@ const SignUp = ({ onClickToggle }: Props) => {
         <ol className="flex items-center gap-2 ml-auto text-xl">
           <label>Password:</label>
           <input
-            type="text"
+            type="password"
             placeholder="Password를 입력해주세요."
             value={password}
             onChange={(e) => onChangePasswordHandler(e)}

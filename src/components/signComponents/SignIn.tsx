@@ -30,7 +30,7 @@ const SignIn = ({ onClickToggle }: Props) => {
         <ol className="flex items-center gap-2 ml-auto text-xl">
           <label>Password:</label>
           <input
-            type="text"
+            type="password"
             value={password}
             onChange={(e) => onChangePasswordHandler(e)}
             placeholder="Password를 입력해주세요."
