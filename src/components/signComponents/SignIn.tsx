@@ -39,7 +39,7 @@ const SignIn = ({ onClickToggle }: Props) => {
         </ol>
         <button type="submit">로그인</button>
         <button type="button" onClick={onClickToggle}>
-          회원가입
+          회원가입페이지로 이동
         </button>
       </form>
     </section>

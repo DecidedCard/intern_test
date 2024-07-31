@@ -10,7 +10,7 @@ const Sign = () => {
   };
 
   return (
-    <main className="flex justify-center items-center w-screen h-screen">
+    <main className="flex justify-center items-center w-screen h-96">
       {checkSign ? (
         <SignIn onClickToggle={onClickToggle} />
       ) : (

@@ -54,7 +54,7 @@ const SignUp = ({ onClickToggle }: Props) => {
         </ol>
         <button type="submit">회원가입</button>
         <button type="button" onClick={onClickToggle}>
-          로그인
+          로그인페이지로 이동
         </button>
       </form>
     </section>
