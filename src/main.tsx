@@ -6,7 +6,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import * as Sentry from "@sentry/react";
 
 Sentry.init({
-  dsn: import.meta.env.VITE_SENTRY_DSN,
+  dsn: import.meta.env.VITE_SOME_SENTRY_AUTH_TOKEN,
   integrations: [
     Sentry.browserTracingIntegration({}),
     Sentry.browserProfilingIntegration(),
